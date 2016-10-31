@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "扇贝",
+  "version": "1.0.0",
+  "description": "使用扇贝API的Chrome查词插件",
+  "icons": {
+    "16": "images/icon.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "16": "images/icon.png"
+    },
+    "default_title": "扇贝查词",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.baidu.com/"
+      ],
+      "js": [
+        "js/cannot_touch.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "http://api.fanyi.baidu.com/api/trans/vip/translate",
+    "https://api.shanbay.com/"
+  ]
+}

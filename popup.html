@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 400px;
+            height: 150px;
+        }
+
+        #clock_div {
+            line-height: 100px;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        #options {
+            position: absolute;
+            bottom: 0;
+            width: 400px;
+            height: 35px;
+            background-color: #efefef;
+        }
+
+        #options p {
+            font-size: 15px;
+            line-height: 35px;
+        }
+
+        #options_left {
+            position: absolute;
+            left: 15px;
+        }
+
+        #options_right {
+            position: absolute;
+            right: 15px;
+            color: cornflowerblue;
+        }
+
+        #options_pop {
+            position: relative;
+            width: 400px;
+            display: none;
+
+        }
+
+        #popup {
+            position: relative;
+            height: 100%;
+        }
+
+        .row {
+            top: 35px;
+            display: flex;
+            width: 100%;
+            height: 50px;
+        }
+
+        .item {
+            position: relative;
+            width: 100%;
+            height: 30px;
+            display: block;
+            line-height: 30px;
+            padding-left: 15px;
+        }
+
+        .title {
+            position: relative;
+            width: 100%;
+            height: 35px;
+            background-color: #efefef;
+            line-height: 35px;
+            font-size: 15px;
+            color: cornflowerblue;
+            padding-left: 15px;
+        }
+
+        .title:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background-color: cornflowerblue;
+        }
+
+        .item + .item:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cfcfcf;
+        }
+
+        div input {
+            position: absolute;
+            right: 30px;
+            top: 0;
+            height: 100%;
+
+        }
+
+        #return {
+
+        }
+
+        .bottom_tab {
+
+            width: 400px;
+
+        }
+
+        .bottom_tab button {
+
+        }
+
+        #return {
+            position: absolute;
+            left: 0;
+            width: 60px;
+            height: 100%;
+        }
+
+        #ok {
+            position: absolute;
+            width: 60px;
+            right: 0;
+            height: 100%;
+        }
+
+        .button {
+
+            background-color: cornflowerblue;
+            width: 45px;
+            color: white;
+            line-height: 30px;
+            border-radius: 2px;
+            text-align: center;
+        }
+
+        .bottom_tab div {
+            display: inline-block;
+        }
+
+        .button + .button {
+            position: absolute;
+            right: 15px;
+        }
+
+        .toolbar {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            font-size: 18px;
+            text-align: center;
+            line-height: 35px;
+            height: 35px;
+            background-color: #efefef;
+
+        }
+
+        #options_pop .toolbar:before {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            top: 50%;
+            left: 15px;
+            border-style: solid;
+            border-width: 2px 0 0 2px;
+            border-color: cornflowerblue;
+            transform: rotate(-45deg);
+            margin-top: -4px;
+        }
+
+        #options_pop .toolbar:after {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 8px;
+            top: 50%;
+            right: 15px;
+            border-style: solid;
+            border-width: 0 0 2px 2px;
+            border-color: cornflowerblue;
+            transform: rotate(-45deg);
+            margin-top: -6.5px;
+        }
+
+        .toolbar div {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div id="popup">
+    <div id="clock_div"></div>
+    <div id="options">
+        <p id="options_left">本应用翻译由扇贝和百度提供</p>
+        <p id="options_right">选项</p>
+    </div>
+</div>
+
+<div id="options_pop">
+    <div class="title">双击取词</div>
+    <div class="item">立即弹出翻译<input id="dby" type="radio" name="db"></div>
+    <div class="item">点击图标翻译<input id="dbn" type="radio" name="db"></div>
+    <div class="title">滑动取词</div>
+    <div class="item">立即弹出翻译<input id="huay" type="radio" name="hua"></div>
+    <div class="item">点击图标翻译<input id="huan" type="radio" name="hua"></div>
+    <div class="toolbar">
+        <div id="return"></div>
+        选项
+        <div id="ok"></div>
+    </div>
+
+</div>
+</div>
+<script src="js/clock.js"></script>
+<script src="js/popup.js"></script>
+</body>
+</html>
