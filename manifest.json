@@ -16,13 +16,19 @@
   "content_scripts": [
     {
       "matches": [
-        "*://www.baidu.com/"
+        "*://*/*"
       ],
       "js": [
         "js/cannot_touch.js"
       ]
     }
   ],
+  "background": {
+    "scripts": [
+      "js/background.js",
+      "js/config.js"
+    ]
+  },
   "permissions": [
     "http://api.fanyi.baidu.com/api/trans/vip/translate",
     "https://api.shanbay.com/"

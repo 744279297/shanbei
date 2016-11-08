@@ -1,6 +1,8 @@
 /**
  * Created by chizhang on 2016/10/29.
  */
+
+var text = {'msg': 'slectedText'}
 function btn_move(el, mouseLeft, mouseTop) {
     var leftRnd = (Math.random() - 0.5) * 20;
     var topRnd = (Math.random() - 0.5) * 20;
@@ -22,20 +24,26 @@ function over_btn(e) {
 
 //document.getElementById('su').onmouseover = over_btn;
 
-document.getElementsByTagName('body').onslectstart = function (e) {
+document.body.onmouseup = function (e) {
     if (!e) {
         e = window.event;
     }
-    console.log(text)
-    var text = window.getSelection().toString()
-    console.log(text)
-}
-document.getElementById('wrapper').onmouseup = function (e) {
-    if (!e) {
-        e = window.event;
-    }
-    //if (window.getSelection() == null) return
-    var text = window.getSelection().toString()
-    if (text != null)
+    text.content = window.getSelection().toString()
+    if (text.content != null && text.content != '') {
+        chrome.runtime.sendMessage(text, function (response) {
+            console.log(response)
+        })
         console.log(text)
+    }
+
 }
+
+// document.getElementById('wrapper').onmouseup = function (e) {
+//     if (!e) {
+//         e = window.event;
+//     }
+//     //if (window.getSelection() == null) return
+//     var text = window.getSelection().toString()
+//     if (text != null)
+//         console.log(text)
+// }
